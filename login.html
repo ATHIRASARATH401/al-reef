@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bustan Al Reef Technical & Cleaning Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 10px;
+            }
+            
+            .login-form {
+                padding: 20px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .form-group input {
+                padding: 12px;
+                font-size: 16px;
+            }
+            
+            .btn-primary {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+            
+            .back-to-home {
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            .back-to-home a {
+                font-size: 14px;
+                color: #FF6B35;
+            }
+        }
+        
+        /* URL Access Styles */
+        .url-access {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .url-access h3 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .url-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .url-input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .url-input-group button {
+            padding: 10px 20px;
+            background: #FF6B35;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .url-input-group button:hover {
+            background: #e55a2b;
+        }
+        
+        .qr-code {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .qr-code img {
+            max-width: 150px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background: white;
+        }
+        
+        .url-examples {
+            margin-top: 20px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .url-examples h4 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .url-examples ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .url-examples li {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            border-left: 3px solid #FF6B35;
+        }
+        
+        .url-examples code {
+            background: #FF6B35;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .note {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 5px;
+            color: #0066cc;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +971 58 512 2126</span>
+                    <span><i class="fas fa-envelope"></i> info@bustan-alreef.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://via.placeholder.com/150x150/FF6B35/FFFFFF?text=Bustan+Al+Reef" alt="Bustan Al Reef Technical & Cleaning Service">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reservation.html">Book Service</a></li>
+                    <li><a href="gallery.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="active">Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Customer Login</h1>
+            <p>Access your account to manage bookings and view service history</p>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <!-- URL Access Option -->
+                <div class="url-access">
+                    <h3>Quick Access via URL</h3>
+                    <p>Enter your unique URL to access your account directly</p>
+                    <div class="url-input-group">
+                        <input type="text" id="urlAccess" placeholder="Enter your custom URL (e.g., bustan-alreef.com/ahmed)">
+                        <button onclick="accessViaUrl()">Access</button>
+                    </div>
+                    <div class="qr-code">
+                        <p>Or scan this QR code on mobile:</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bustan-alreef.com/login" alt="QR Code for Login">
+                    </div>
+                    <div class="url-examples">
+                        <h4>Example URLs:</h4>
+                        <ul>
+                            <li><code>bustan-alreef.com/ahmed</code></li>
+                            <li><code>bustan-alreef.com/sarah123</code></li>
+                            <li><code>bustan-alreef.com/office-abc</code></li>
+                        </ul>
+                        <p class="note">Your unique URL is: <strong id="userUrl"></strong></p>
+                    </div>
+                </div>
+
+                <!-- Traditional Login Form -->
+                <div class="login-form">
+                    <h2>Login to Your Account</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me for 30 days</label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Login</button>
+                    </form>
+                    
+                    <div class="login-links">
+                        <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                        <a href="#" onclick="showRegisterForm()">Don't have an account? Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>New to Bustan Al Reef?</h2>
+            <p>Create an account to book services faster and track your cleaning history</p>
+            <div class="cta-buttons">
+                <a href="#" onclick="showRegisterForm()" class="btn-primary">Create Account</a>
+                <a href="contact.html" class="btn-secondary">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Bustan Al Reef</h3>
+                    <p>Leading technical and cleaning service provider in Abu Dhabi, offering professional cleaning solutions for residential and commercial clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reservation.html">Book Service</a></li>
+                        <li><a href="gallery.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Deep Cleaning</a></li>
+                        <li><a href="#">Office Cleaning</a></li>
+                        <li><a href="#">Carpet Cleaning</a></li>
+                        <li><a href="#">Window Cleaning</a></li>
+                        <li><a href="#">Technical Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 58 512 2126</li>
+                        <li><i class="fas fa-envelope"></i> info@bustan-alreef.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bustan Al Reef Technical & Cleaning Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // URL Access Function
+        function accessViaUrl() {
+            const urlInput = document.getElementById('urlAccess').value.trim();
+            
+            }
+            
+            .note {
+                margin-top: 15px;
+                padding: 10px;
+                background: #e7f3ff;
+                border: 1px solid #b3d9ff;
+                border-radius: 5px;
+                color: #0066cc;
+                font-weight: 500;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +971 58 512 2126</span>
+                        <span><i class="fas fa-envelope"></i> info@bustan-alreef.com</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // Basic validation
+            if (!email || !password) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Show loading spinner
+            const spinner = showSpinner();
+            
+            // Simulate login process
+            setTimeout(() => {
+                hideSpinner(spinner);
+                
+                // Simulate successful login
+                alert('Login successful! Redirecting to your dashboard...');
+                
+                // Store login info if remember is checked
+                if (remember) {
+                    localStorage.setItem('rememberedEmail', email);
+                    localStorage.setItem('rememberLogin', 'true');
+                }
+                
+                // Redirect to dashboard (in real app)
+                // window.location.href = 'dashboard.html';
+            }, 2000);
+        });
+        
+        // Forgot password function
+        function showForgotPassword() {
+            const email = prompt('Enter your email address for password reset:');
+            if (email) {
+                alert('Password reset link has been sent to: ' + email);
+            }
+        }
+        
+        // Register function
+        function showRegisterForm() {
+            alert('Registration form would open here. For demo, please contact us directly.');
+        }
+        
+        // Check for remembered login on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const rememberedEmail = localStorage.getItem('rememberedEmail');
+            const rememberLogin = localStorage.getItem('rememberLogin');
+            
+            if (rememberLogin === 'true' && rememberedEmail) {
+                document.getElementById('email').value = rememberedEmail;
+                document.getElementById('remember').checked = true;
+            }
+            
+            // Mobile-specific optimizations
+            if (window.innerWidth <= 768) {
+                // Adjust layout for mobile
+                document.querySelector('.login-container').style.padding = '10px';
+                document.querySelector('.login-form').style.padding = '20px';
+            }
+        });
+        
+        // Handle Enter key in URL input
+        document.getElementById('urlAccess').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                accessViaUrl();
+            }
+        });
+    </script>
+</body>
+</html>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Login</h1>
+            <p>Access your Al Reef Restaurant account</p>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-form">
+                    <h2>Login to Your Account</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" name="password" required>
+                            <span class="password-toggle" onclick="togglePassword()">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Remember me</label>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Login</button>
+                        
+                        <div class="social-login">
+                            <p>Or login with:</p>
+                            <div class="social-buttons">
+                                <button type="button" class="btn-social google">
+                                    <i class="fab fa-google"></i>
+                                    Google
+                                </button>
+                                <button type="button" class="btn-social facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    Facebook
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="signup-link">
+                            <p>Don't have an account? <a href="#signup">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="login-info">
+                    <h2>Why Join Al Reef?</h2>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Loyalty Rewards</h3>
+                                <p>Earn points with every visit and redeem exclusive rewards</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Special Discounts</h3>
+                                <p>Get member-only discounts and special offers</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Easy Reservations</h3>
+                                <p>Priority booking and personalized dining experiences</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Birthday Specials</h3>
+                                <p>Complimentary birthday treats and exclusive celebrations</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-testimonial">
+                        <div class="testimonial-content">
+                            <p>"Joining Al Reef's loyalty program has been amazing! The rewards and special treatment make every visit special."</p>
+                            <div class="testimonial-author">
+                                <img src="https://via.placeholder.com/50x50/FF6B35/FFFFFF?text=MK" alt="Member">
+                                <div>
+                                    <h4>Maria Khalid</h4>
+                                    <span>Gold Member</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section (Hidden by default) -->
+    <section class="signup-section" id="signup" style="display: none;">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-form">
+                    <h2>Create Your Account</h2>
+                    <form id="signupForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address *</label>
+                            <input type="email" id="signupEmail" name="signupEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupPhone">Phone Number *</label>
+                            <input type="tel" id="signupPhone" name="signupPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupPassword">Password *</label>
+                            <input type="password" id="signupPassword" name="signupPassword" required>
+                            <span class="password-toggle" onclick="toggleSignupPassword()">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password *</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <span class="password-toggle" onclick="toggleConfirmPassword()">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="birthdate">Date of Birth</label>
+                            <input type="date" id="birthdate" name="birthdate">
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="terms-agree">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="newsletter-agree">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Subscribe to our newsletter for special offers</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Create Account</button>
+                        
+                        <div class="login-link">
+                            <p>Already have an account? <a href="#login">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="login-info">
+                    <h2>Membership Benefits</h2>
+                    <div class="membership-tiers">
+                        <div class="tier-card">
+                            <h3>Bronze Member</h3>
+                            <ul>
+                                <li>Welcome bonus points</li>
+                                <li>5% discount on weekdays</li>
+                                <li>Birthday voucher</li>
+                                <li>Monthly newsletter</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card featured">
+                            <h3>Silver Member</h3>
+                            <ul>
+                                <li>Double points on weekends</li>
+                                <li>10% discount always</li>
+                                <li>Free dessert on birthday</li>
+                                <li>Priority reservations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card">
+                            <h3>Gold Member</h3>
+                            <ul>
+                                <li>Triple points multiplier</li>
+                                <li>15% discount always</li>
+                                <li>Complimentary birthday meal</li>
+                                <li>Exclusive events access</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Help?</h2>
+            <p>Our customer service team is here to assist you</p>
+            <div class="cta-buttons">
+                <a href="tel:+971585122126" class="btn-primary">Call Support</a>
+                <a href="contact.html" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Al Reef</h3>
+                    <p>Al Reef Restaurant brings you the authentic taste of Middle Eastern cuisine in the heart of Abu Dhabi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="menu.html">Our Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reservation.html">Reservations</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Dine-in</a></li>
+                        <li><a href="#">Takeaway</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Private Events</a></li>
+                        <li><a href="#">Delivery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 58 512 2126</li>
+                        <li><i class="fas fa-envelope"></i> info@alreefrestaurant.com</li>
+                        <li><i class="fas fa-clock"></i> Daily: 11:00 AM - 11:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Al Reef Restaurant. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Toggle between login and signup
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginSection = document.querySelector('.login-section');
+            const signupSection = document.querySelector('.signup-section');
+            
+            // Handle signup link
+            document.querySelector('.signup-link a').addEventListener('click', function(e) {
+                e.preventDefault();
+                loginSection.style.display = 'none';
+                signupSection.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+            
+            // Handle login link
+            document.querySelector('.login-link a').addEventListener('click', function(e) {
+                e.preventDefault();
+                signupSection.style.display = 'none';
+                loginSection.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+            
+            // Handle hash changes
+            if (window.location.hash === '#signup') {
+                loginSection.style.display = 'none';
+                signupSection.style.display = 'block';
+            } else if (window.location.hash === '#login') {
+                signupSection.style.display = 'none';
+                loginSection.style.display = 'block';
+            }
+            
+            // Login form submission
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm('loginForm')) {
+                    alert('Please fill in all required fields correctly.');
+                    return;
+                }
+                
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Show loading spinner
+                const spinner = showSpinner();
+                
+                // Simulate login
+                setTimeout(() => {
+                    hideSpinner(spinner);
+                    alert('Login successful! Welcome back to Al Reef Restaurant.');
+                    // Redirect to dashboard or home
+                    window.location.href = 'index.html';
+                }, 2000);
+            });
+            
+            // Signup form submission
+            document.getElementById('signupForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm('signupForm')) {
+                    alert('Please fill in all required fields correctly.');
+                    return;
+                }
+                
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match.');
+                    return;
+                }
+                
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Show loading spinner
+                const spinner = showSpinner();
+                
+                // Simulate signup
+                setTimeout(() => {
+                    hideSpinner(spinner);
+                    alert('Account created successfully! Welcome to Al Reef Restaurant.');
+                    // Redirect to login or home
+                    window.location.href = 'index.html';
+                }, 2000);
+            });
+            
+            // Email validation
+            document.getElementById('email').addEventListener('input', function(e) {
+                const value = e.target.value;
+                if (value && !validateEmail(value)) {
+                    this.classList.add('error');
+                } else {
+                    this.classList.remove('error');
+                }
+            });
+            
+            document.getElementById('signupEmail').addEventListener('input', function(e) {
+                const value = e.target.value;
+                if (value && !validateEmail(value)) {
+                    this.classList.add('error');
+                } else {
+                    this.classList.remove('error');
+                }
+            });
+            
+            // Phone validation
+            document.getElementById('signupPhone').addEventListener('input', function(e) {
+                const value = e.target.value.replace(/\s/g, '');
+                if (value && !validatePhone(value)) {
+                    this.classList.add('error');
+                } else {
+                    this.classList.remove('error');
+                }
+            });
+            
+            // Social login buttons
+            document.querySelector('.btn-social.google').addEventListener('click', function() {
+                alert('Google login integration would be implemented here.');
+            });
+            
+            document.querySelector('.btn-social.facebook').addEventListener('click', function() {
+                alert('Facebook login integration would be implemented here.');
+            });
+        });
+        
+        // Password toggle functions
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('#loginForm .password-toggle i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+        
+        function toggleSignupPassword() {
+            const passwordInput = document.getElementById('signupPassword');
+            const toggleIcon = document.querySelector('#signupForm .password-toggle i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+        
+        function toggleConfirmPassword() {
+            const passwordInput = document.getElementById('confirmPassword');
+            const toggleIcon = document.querySelectorAll('#signupForm .password-toggle i')[1];
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+    </script>
+</body>
+</html>

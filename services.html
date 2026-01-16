@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Bustan Al Reef Technical & Cleaning Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +971 58 512 2126</span>
+                    <span><i class="fas fa-envelope"></i> info@bustan-alreef.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://via.placeholder.com/150x150/FF6B35/FFFFFF?text=Bustan+Al+Reef" alt="Bustan Al Reef Technical & Cleaning Service">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Our Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reservation.html">Book Service</a></li>
+                    <li><a href="gallery.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Professional Services</h1>
+            <p>Comprehensive cleaning and technical solutions for your home and business</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="menu-section">
+        <div class="container">
+            <!-- Service Category Tabs -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-category="residential">Residential</button>
+                <button class="tab-btn" data-category="commercial">Commercial</button>
+                <button class="tab-btn" data-category="specialized">Specialized</button>
+                <button class="tab-btn" data-category="technical">Technical</button>
+            </div>
+
+            <!-- Residential Services -->
+            <div class="menu-category active" id="residential">
+                <h2>Residential Cleaning Services</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Deep+Cleaning" alt="Deep Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Deep Cleaning</h3>
+                            <p>Comprehensive deep cleaning service for your entire home, including hard-to-reach areas and detailed cleaning of all surfaces.</p>
+                            <span class="price">Starting from AED 299</span>
+                            <span class="tag">Popular</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Deep Cleaning', 299, 'residential')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Regular+Cleaning" alt="Regular Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Regular Cleaning</h3>
+                            <p>Maintenance cleaning service to keep your home consistently clean and fresh on a weekly or bi-weekly basis.</p>
+                            <span class="price">Starting from AED 149</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Regular Cleaning', 149, 'residential')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Carpet+Cleaning" alt="Carpet Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Carpet Cleaning</h3>
+                            <p>Professional carpet cleaning using steam and dry cleaning methods to remove stains, dirt, and allergens.</p>
+                            <span class="price">Starting from AED 149</span>
+                            <span class="tag">Bestseller</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Carpet Cleaning', 149, 'residential')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Window+Cleaning" alt="Window Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Window Cleaning</h3>
+                            <p>Streak-free window cleaning for all types of windows, including high-rise and hard-to-reach windows.</p>
+                            <span class="price">Starting from AED 99</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Window Cleaning', 99, 'residential')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commercial Services -->
+            <div class="menu-category" id="commercial">
+                <h2>Commercial Cleaning Services</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Office+Cleaning" alt="Office Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Office Cleaning</h3>
+                            <p>Professional office cleaning services to maintain a clean, productive work environment for your employees and clients.</p>
+                            <span class="price">Starting from AED 199</span>
+                            <span class="tag">Popular</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Office Cleaning', 199, 'commercial')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Retail+Cleaning" alt="Retail Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Retail Cleaning</h3>
+                            <p>Specialized cleaning for retail spaces, showrooms, and commercial establishments to enhance customer experience.</p>
+                            <span class="price">Starting from AED 249</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Retail Cleaning', 249, 'commercial')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Industrial+Cleaning" alt="Industrial Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Industrial Cleaning</h3>
+                            <p>Heavy-duty cleaning solutions for warehouses, factories, and industrial facilities with specialized equipment.</p>
+                            <span class="price">Starting from AED 399</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Industrial Cleaning', 399, 'commercial')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Post+Construction" alt="Post Construction">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Post-Construction Cleaning</h3>
+                            <p>Thorough cleaning after construction or renovation projects to make your space ready for occupancy.</p>
+                            <span class="price">Starting from AED 499</span>
+                            <span class="tag">Premium</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Post-Construction Cleaning', 499, 'commercial')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Services -->
+            <div class="menu-category" id="specialized">
+                <h2>Specialized Cleaning Services</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Upholstery" alt="Upholstery Cleaning">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Upholstery Cleaning</h3>
+                            <p>Professional cleaning for sofas, chairs, and other furniture using safe and effective cleaning methods.</p>
+                            <span class="price">Starting from AED 179</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Upholstery Cleaning', 179, 'specialized')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Marble+Polishing" alt="Marble Polishing">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Marble & Stone Polishing</h3>
+                            <p>Restoration and polishing of marble, granite, and other stone surfaces to bring back their natural shine.</p>
+                            <span class="price">Starting from AED 249</span>
+                            <span class="tag">Premium</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Marble & Stone Polishing', 249, 'specialized')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Pest+Control" alt="Pest Control">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Pest Control</h3>
+                            <p>Safe and effective pest control services to eliminate unwanted pests from your property.</p>
+                            <span class="price">Starting from AED 199</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Pest Control', 199, 'specialized')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Disinfection" alt="Disinfection">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Disinfection & Sanitization</h3>
+                            <p>Professional disinfection services using hospital-grade products to ensure a germ-free environment.</p>
+                            <span class="price">Starting from AED 299</span>
+                            <span class="tag">Essential</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Disinfection & Sanitization', 299, 'specialized')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Services -->
+            <div class="menu-category" id="technical">
+                <h2>Technical Services</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=AC+Service" alt="AC Service">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>AC Maintenance & Repair</h3>
+                            <p>Professional air conditioning maintenance, cleaning, and repair services for all types of AC units.</p>
+                            <span class="price">Starting from AED 199</span>
+                            <span class="tag">Popular</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('AC Maintenance & Repair', 199, 'technical')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Plumbing" alt="Plumbing">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Plumbing Services</h3>
+                            <p>Complete plumbing solutions including repairs, installations, and maintenance for residential and commercial properties.</p>
+                            <span class="price">Starting from AED 249</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Plumbing Services', 249, 'technical')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Electrical" alt="Electrical">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Electrical Services</h3>
+                            <p>Professional electrical work including installations, repairs, and maintenance by certified electricians.</p>
+                            <span class="price">Starting from AED 299</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Electrical Services', 299, 'technical')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://via.placeholder.com/300x200/FF6B35/FFFFFF?text=Painting" alt="Painting">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Painting Services</h3>
+                            <p>Professional interior and exterior painting services using high-quality materials for a flawless finish.</p>
+                            <span class="price">Starting from AED 399</span>
+                            <span class="tag">Premium</span>
+                            <div class="menu-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart('Painting Services', 399, 'technical')">
+                                    <i class="fas fa-plus"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need a Custom Cleaning Solution?</h2>
+            <p>Contact us for personalized service packages tailored to your specific needs</p>
+            <div class="cta-buttons">
+                <a href="reservation.html" class="btn-primary">Book Service</a>
+                <a href="contact.html" class="btn-secondary">Get Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Bustan Al Reef</h3>
+                    <p>Leading technical and cleaning service provider in Abu Dhabi, offering professional cleaning solutions for residential and commercial clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reservation.html">Book Service</a></li>
+                        <li><a href="gallery.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Deep Cleaning</a></li>
+                        <li><a href="#">Office Cleaning</a></li>
+                        <li><a href="#">Carpet Cleaning</a></li>
+                        <li><a href="#">Window Cleaning</a></li>
+                        <li><a href="#">Technical Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 58 512 2126</li>
+                        <li><i class="fas fa-envelope"></i> info@bustan-alreef.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bustan Al Reef Technical & Cleaning Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Service Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total: AED <span id="cartTotal">0</span></span>
+            </div>
+            <button class="btn-primary" onclick="proceedToCheckout()">
+                Proceed to Booking
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button class="cart-toggle-btn" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3>Service Booking</h3>
+                <button class="checkout-close" onclick="closeCheckout()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="checkoutForm">
+                <div class="checkout-section">
+                    <h4>Service Information</h4>
+                    <div class="form-group">
+                        <label for="orderType">Service Type</label>
+                        <select id="checkoutOrderType" onchange="toggleCheckoutLocation()">
+                            <option value="onsite">On-site Service</option>
+                            <option value="consultation">Consultation</option>
+                        </select>
+                    </div>
+                    <div id="checkoutLocationFields">
+                        <div class="form-group">
+                            <label for="deliveryArea">Service Area</label>
+                            <select id="checkoutDeliveryArea">
+                                <option value="">Select area</option>
+                                <option value="abu-dhabi-city">Abu Dhabi City</option>
+                                <option value="khalifa-city">Khalifa City</option>
+                                <option value="al-ain">Al Ain</option>
+                                <option value="dubai">Dubai</option>
+                                <option value="sharjah">Sharjah</option>
+                                <option value="ajman">Ajman</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkoutAddress">Service Address</label>
+                            <input type="text" id="checkoutAddress" placeholder="Enter your service address">
+                        </div>
+                        <div class="location-actions">
+                            <button type="button" class="btn-secondary" onclick="getCheckoutLocation()">
+                                <i class="fas fa-location-dot"></i> Use Current Location
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checkout-section">
+                    <h4>Contact Information</h4>
+                    <div class="form-group">
+                        <label for="checkoutName">Full Name</label>
+                        <input type="text" id="checkoutName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutPhone">Phone Number</label>
+                        <input type="tel" id="checkoutPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutEmail">Email Address</label>
+                        <input type="email" id="checkoutEmail" required>
+                    </div>
+                </div>
+                
+                <div class="checkout-section">
+                    <h4>Service Summary</h4>
+                    <div id="checkoutItems"></div>
+                    <div class="checkout-total">
+                        <strong>Total: AED <span id="checkoutTotal">0</span></strong>
+                    </div>
+                </div>
+                
+                <div class="checkout-actions">
+                    <button type="submit" class="btn-primary">Book Service</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Service category tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const menuCategories = document.querySelectorAll('.menu-category');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.dataset.category;
+                    
+                    // Remove active class from all buttons and categories
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    menuCategories.forEach(cat => cat.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding category
+                    btn.classList.add('active');
+                    document.getElementById(category).classList.add('active');
+                });
+            });
+        });
+        
+        // Cart functionality
+        let cart = [];
+        
+        function addToCart(name, price, category) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    category: category,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            showNotification(name + ' added to cart!');
+        }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+        
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                removeFromCart(index);
+            } else {
+                updateCart();
+            }
+        }
+        
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+                cartCount.textContent = '0';
+                cartTotal.textContent = '0';
+                return;
+            }
+            
+            let html = '';
+            let total = 0;
+            let count = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                count += item.quantity;
+                
+                html += '<div class="cart-item">' +
+                    '<div class="cart-item-info">' +
+                        '<h4>' + item.name + '</h4>' +
+                        '<span class="cart-item-price">AED ' + item.price + '</span>' +
+                    '</div>' +
+                    '<div class="cart-item-quantity">' +
+                        '<button onclick="updateQuantity(' + index + ', -1)">-</button>' +
+                        '<span>' + item.quantity + '</span>' +
+                        '<button onclick="updateQuantity(' + index + ', 1)">+</button>' +
+                    '</div>' +
+                    '<div class="cart-item-total">AED ' + itemTotal + '</div>' +
+                    '<button class="cart-item-remove" onclick="removeFromCart(' + index + ')">' +
+                        '<i class="fas fa-times"></i>' +
+                    '</button>' +
+                '</div>';
+            });
+            
+            cartItems.innerHTML = html;
+            cartCount.textContent = count;
+            cartTotal.textContent = total;
+        }
+        
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            cartSidebar.classList.toggle('active');
+        }
+        
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const checkoutModal = document.getElementById('checkoutModal');
+            const checkoutItems = document.getElementById('checkoutItems');
+            const checkoutTotal = document.getElementById('checkoutTotal');
+            
+            // Update checkout items
+            let html = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                html += '<div class="checkout-item">' +
+                    '<span>' + item.name + ' x ' + item.quantity + '</span>' +
+                    '<span>AED ' + itemTotal + '</span>' +
+                '</div>';
+            });
+            
+            checkoutItems.innerHTML = html;
+            checkoutTotal.textContent = total;
+            
+            checkoutModal.style.display = 'flex';
+            document.getElementById('cartSidebar').classList.remove('active');
+        }
+        
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+        
+        function toggleCheckoutLocation() {
+            const orderType = document.getElementById('checkoutOrderType').value;
+            const checkoutLocationFields = document.getElementById('checkoutLocationFields');
+            
+            if (orderType === 'onsite') {
+                checkoutLocationFields.style.display = 'block';
+            } else {
+                checkoutLocationFields.style.display = 'none';
+            }
+        }
+        
+        function getCheckoutLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        
+                        try {
+                            const response = await fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng);
+                            const data = await response.json();
+                            
+                            if (data && data.display_name) {
+                                document.getElementById('checkoutAddress').value = data.display_name;
+                                showNotification('Location detected successfully!');
+                            }
+                        } catch (error) {
+                            document.getElementById('checkoutAddress').value = 'Lat: ' + lat.toFixed(6) + ', Lng: ' + lng.toFixed(6);
+                            showNotification('Location coordinates captured!');
+                        }
+                    },
+                    (error) => {
+                        alert('Unable to get your location. Please enter your address manually.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser. Please enter your address manually.');
+            }
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Checkout form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const orderType = document.getElementById('checkoutOrderType').value;
+            const name = document.getElementById('checkoutName').value;
+            const phone = document.getElementById('checkoutPhone').value;
+            const email = document.getElementById('checkoutEmail').value;
+            
+            if (!name || !phone || !email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            if (orderType === 'onsite' && !document.getElementById('checkoutAddress').value) {
+                alert('Please enter your service address.');
+                return;
+            }
+            
+            // Show loading
+            const spinner = showSpinner();
+            
+            // Simulate order submission
+            setTimeout(() => {
+                hideSpinner(spinner);
+                alert('Service booked successfully! We will contact you shortly to confirm the details.');
+                
+                // Reset cart and form
+                cart = [];
+                updateCart();
+                closeCheckout();
+                this.reset();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

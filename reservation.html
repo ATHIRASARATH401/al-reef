@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - Bustan Al Reef Technical & Cleaning Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +971 58 512 2126</span>
+                    <span><i class="fas fa-envelope"></i> info@bustan-alreef.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://via.placeholder.com/150x150/FF6B35/FFFFFF?text=Bustan+Al+Reef" alt="Bustan Al Reef Technical & Cleaning Service">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reservation.html" class="active">Book Service</a></li>
+                    <li><a href="gallery.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Book Our Services</h1>
+            <p>Schedule professional cleaning and technical services at your convenience</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-form-container">
+                <div class="booking-form">
+                    <h2>Service Booking</h2>
+                    <form id="bookingForm">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Selection -->
+                        <div class="form-section">
+                            <h3>Service Details</h3>
+                            <div class="form-group">
+                                <label for="serviceType">Service Type *</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="">Select a service</option>
+                                    <option value="deep-cleaning">Deep Cleaning</option>
+                                    <option value="regular-cleaning">Regular Cleaning</option>
+                                    <option value="office-cleaning">Office Cleaning</option>
+                                    <option value="carpet-cleaning">Carpet Cleaning</option>
+                                    <option value="window-cleaning">Window Cleaning</option>
+                                    <option value="ac-service">AC Service</option>
+                                    <option value="plumbing">Plumbing</option>
+                                    <option value="electrical">Electrical</option>
+                                    <option value="painting">Painting</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="propertyType">Property Type *</label>
+                                <select id="propertyType" name="propertyType" required>
+                                    <option value="">Select property type</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="office">Office</option>
+                                    <option value="retail">Retail Store</option>
+                                    <option value="warehouse">Warehouse</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="propertySize">Property Size (sq ft)</label>
+                                <input type="number" id="propertySize" name="propertySize" placeholder="Enter property size">
+                            </div>
+                            <div class="form-group">
+                                <label for="specialRequests">Special Requests</label>
+                                <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements or notes..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Location Information -->
+                        <div class="form-section">
+                            <h3>Service Location</h3>
+                            <div class="location-section">
+                                <div class="form-group">
+                                    <label for="serviceArea">Service Area *</label>
+                                    <select id="serviceArea" name="serviceArea" required>
+                                        <option value="">Select area</option>
+                                        <option value="abu-dhabi-city">Abu Dhabi City</option>
+                                        <option value="khalifa-city">Khalifa City</option>
+                                        <option value="al-ain">Al Ain</option>
+                                        <option value="dubai">Dubai</option>
+                                        <option value="sharjah">Sharjah</option>
+                                        <option value="ajman">Ajman</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="streetAddress">Street Address *</label>
+                                    <input type="text" id="streetAddress" name="streetAddress" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="buildingNumber">Building/Villa Number *</label>
+                                        <input type="text" id="buildingNumber" name="buildingNumber" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="landmark">Nearest Landmark</label>
+                                        <input type="text" id="landmark" name="landmark" placeholder="e.g., Mall, School, Park">
+                                    </div>
+                                </div>
+                                <div class="location-actions">
+                                    <button type="button" class="btn-secondary" onclick="getCurrentLocation()">
+                                        <i class="fas fa-location-dot"></i> Use Current Location
+                                    </button>
+                                    <button type="button" class="btn-secondary" onclick="openMapPicker()">
+                                        <i class="fas fa-map"></i> Select on Map
+                                    </button>
+                                </div>
+                                <div class="location-status" id="locationStatus"></div>
+                                <div class="location-result" id="locationResult"></div>
+                            </div>
+                        </div>
+
+                        <!-- Booking Schedule -->
+                        <div class="form-section">
+                            <h3>Preferred Schedule</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookingDate">Preferred Date *</label>
+                                    <input type="date" id="bookingDate" name="bookingDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookingTime">Preferred Time *</label>
+                                    <select id="bookingTime" name="bookingTime" required>
+                                        <option value="">Select time</option>
+                                        <option value="08:00">8:00 AM</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="15:00">3:00 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                        <option value="19:00">7:00 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="urgency">Service Urgency</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="regular">Regular (3-5 days)</option>
+                                    <option value="priority">Priority (1-2 days)</option>
+                                    <option value="emergency">Emergency (Same day)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Additional Options -->
+                        <div class="form-section">
+                            <h3>Additional Options</h3>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="ecoFriendly" name="ecoFriendly">
+                                    <span class="checkmark"></span>
+                                    Use eco-friendly products (+10%)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="afterHours" name="afterHours">
+                                    <span class="checkmark"></span>
+                                    After-hours service (+20%)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="recurring" name="recurring">
+                                    <span class="checkmark"></span>
+                                    Make this a recurring service
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Book Service</button>
+                            <button type="button" class="btn-secondary" onclick="resetForm()">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Booking Summary -->
+                <div class="booking-summary">
+                    <h3>Booking Summary</h3>
+                    <div id="summaryContent">
+                        <p class="empty-summary">Fill in the form to see your booking summary</p>
+                    </div>
+                    <div class="summary-total" id="summaryTotal" style="display: none;">
+                        <h4>Estimated Cost</h4>
+                        <div class="total-amount">
+                            <span class="currency">AED</span>
+                            <span id="totalAmount">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Immediate Assistance?</h2>
+            <p>Call our emergency hotline for urgent cleaning and technical services</p>
+            <div class="cta-buttons">
+                <a href="tel:+971585122126" class="btn-primary">Emergency Hotline</a>
+                <a href="contact.html" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Bustan Al Reef</h3>
+                    <p>Leading technical and cleaning service provider in Abu Dhabi, offering professional cleaning solutions for residential and commercial clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reservation.html">Book Service</a></li>
+                        <li><a href="gallery.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Deep Cleaning</a></li>
+                        <li><a href="#">Office Cleaning</a></li>
+                        <li><a href="#">Carpet Cleaning</a></li>
+                        <li><a href="#">Window Cleaning</a></li>
+                        <li><a href="#">Technical Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 58 512 2126</li>
+                        <li><i class="fas fa-envelope"></i> info@bustan-alreef.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bustan Al Reef Technical & Cleaning Service. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Service pricing
+        const servicePrices = {
+            'deep-cleaning': 299,
+            'regular-cleaning': 149,
+            'office-cleaning': 199,
+            'carpet-cleaning': 149,
+            'window-cleaning': 99,
+            'ac-service': 199,
+            'plumbing': 249,
+            'electrical': 299,
+            'painting': 399,
+            'other': 199
+        };
+
+        // Location functions
+        function getCurrentLocation() {
+            const statusDiv = document.getElementById('locationStatus');
+            const resultDiv = document.getElementById('locationResult');
+
+            statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Getting your location...';
+            statusDiv.style.display = 'block';
+            resultDiv.style.display = 'none';
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+
+                        try {
+                            const response = await fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng);
+                            const data = await response.json();
+
+                            if (data && data.display_name) {
+                                document.getElementById('streetAddress').value = data.display_name;
+                                statusDiv.innerHTML = '<i class="fas fa-check-circle" style="color: #28a745;"></i> Location detected successfully!';
+                                resultDiv.innerHTML = '<strong>Detected Location:</strong> ' + data.display_name;
+                                resultDiv.style.display = 'block';
+                                updateBookingSummary();
+                            }
+                        } catch (error) {
+                            document.getElementById('streetAddress').value = 'Lat: ' + lat.toFixed(6) + ', Lng: ' + lng.toFixed(6);
+                            statusDiv.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #ffc107;"></i> Location coordinates captured!';
+                            resultDiv.innerHTML = '<strong>Coordinates:</strong> ' + lat.toFixed(6) + ', ' + lng.toFixed(6);
+                            resultDiv.style.display = 'block';
+                            updateBookingSummary();
+                        }
+                    },
+                    (error) => {
+                        statusDiv.innerHTML = '<i class="fas fa-times-circle" style="color: #dc3545;"></i> Unable to get your location. Please enter manually.';
+                        statusDiv.style.display = 'block';
+                    });
+            } else {
+                statusDiv.innerHTML = '<i class="fas fa-times-circle" style="color: #dc3545;"></i> Geolocation is not supported by your browser.';
+                statusDiv.style.display = 'block';
+            }
+        }
+
+        function openMapPicker() {
+            // In a real implementation, this would open a map interface
+            alert('Map picker would open here. For now, please enter your address manually.');
+        }
+
+        // Booking summary update
+        function updateBookingSummary() {
+            const summaryContent = document.getElementById('summaryContent');
+            const summaryTotal = document.getElementById('summaryTotal');
+            const totalAmount = document.getElementById('totalAmount');
+            
+            const serviceType = document.getElementById('serviceType').value;
+            const propertyType = document.getElementById('propertyType').value;
+            const bookingDate = document.getElementById('bookingDate').value;
+            const bookingTime = document.getElementById('bookingTime').value;
+            const urgency = document.getElementById('urgency').value;
+            const address = document.getElementById('streetAddress').value;
+            const ecoFriendly = document.getElementById('ecoFriendly').checked;
+            const afterHours = document.getElementById('afterHours').checked;
+            
+            if (!serviceType || !propertyType || !bookingDate || !bookingTime) {
+                summaryContent.innerHTML = '<p class="empty-summary">Fill in the form to see your booking summary</p>';
+                summaryTotal.style.display = 'none';
+                return;
+            }
+            
+            let basePrice = servicePrices[serviceType] || 199;
+            let totalPrice = basePrice;
+            
+            // Apply additional charges
+            if (ecoFriendly) totalPrice *= 1.1;
+            if (afterHours) totalPrice *= 1.2;
+            if (urgency === 'priority') totalPrice *= 1.3;
+            if (urgency === 'emergency') totalPrice *= 1.5;
+            
+            let summaryHTML = '<div class="summary-item"><strong>Service:</strong> ' + 
+                document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text + '</div>';
+            summaryHTML += '<div class="summary-item"><strong>Property:</strong> ' + 
+                document.getElementById('propertyType').options[document.getElementById('propertyType').selectedIndex].text + '</div>';
+            summaryHTML += '<div class="summary-item"><strong>Date:</strong> ' + bookingDate + '</div>';
+            summaryHTML += '<div class="summary-item"><strong>Time:</strong> ' + 
+                document.getElementById('bookingTime').options[document.getElementById('bookingTime').selectedIndex].text + '</div>';
+            summaryHTML += '<div class="summary-item"><strong>Urgency:</strong> ' + 
+                document.getElementById('urgency').options[document.getElementById('urgency').selectedIndex].text + '</div>';
+            
+            if (address) {
+                summaryHTML += '<div class="summary-item"><strong>Address:</strong> ' + address + '</div>';
+            }
+            
+            if (ecoFriendly) {
+                summaryHTML += '<div class="summary-item"><strong>Eco-friendly:</strong> Yes (+10%)</div>';
+            }
+            
+            if (afterHours) {
+                summaryHTML += '<div class="summary-item"><strong>After-hours:</strong> Yes (+20%)</div>';
+            }
+            
+            summaryContent.innerHTML = summaryHTML;
+            totalAmount.textContent = Math.round(totalPrice);
+            summaryTotal.style.display = 'block';
+        }
+
+        // Form event listeners
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const spinner = showSpinner();
+            
+            setTimeout(() => {
+                hideSpinner(spinner);
+                alert('Service booked successfully! We will contact you shortly to confirm the details.');
+                this.reset();
+                updateBookingSummary();
+            }, 2000);
+        });
+
+        function resetForm() {
+            document.getElementById('bookingForm').reset();
+            updateBookingSummary();
+            document.getElementById('locationStatus').style.display = 'none';
+            document.getElementById('locationResult').style.display = 'none';
+        }
+
+        // Add event listeners for real-time summary updates
+        document.getElementById('serviceType').addEventListener('change', updateBookingSummary);
+        document.getElementById('propertyType').addEventListener('change', updateBookingSummary);
+        document.getElementById('bookingDate').addEventListener('change', updateBookingSummary);
+        document.getElementById('bookingTime').addEventListener('change', updateBookingSummary);
+        document.getElementById('urgency').addEventListener('change', updateBookingSummary);
+        document.getElementById('streetAddress').addEventListener('input', updateBookingSummary);
+        document.getElementById('ecoFriendly').addEventListener('change', updateBookingSummary);
+        document.getElementById('afterHours').addEventListener('change', updateBookingSummary);
+
+        // Set minimum date to today
+        document.getElementById('bookingDate').min = new Date().toISOString().split('T')[0];
+
+        // Location Functions
+        function getCurrentLocation() {
+            const locationStatus = document.getElementById('locationStatus');
+            const locationResult = document.getElementById('locationResult');
+            
+            if (!navigator.geolocation) {
+                locationStatus.innerHTML = '<div class="error">Geolocation is not supported by your browser</div>';
+                locationStatus.style.display = 'block';
+                return;
+            }
+            
+            locationStatus.innerHTML = '<div class="loading">Fetching your location...</div>';
+            locationStatus.style.display = 'block';
+            locationResult.style.display = 'none';
+            
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    
+                    try {
+                        // Try multiple approaches for reverse geocoding
+                        let data = null;
+                        
+                        // Method 1: Try OpenStreetMap with CORS proxy
+                        try {
+                            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+                            const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`;
+                            const response = await fetch(proxyUrl + geocodingUrl);
+                            if (response.ok) {
+                                data = await response.json();
+                            }
+                        } catch (proxyError) {
+                            console.log('Proxy method failed:', proxyError);
+                        }
+                        
+                        // Method 2: Try direct request with proper headers
+                        if (!data) {
+                            try {
+                                const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`;
+                                const response = await fetch(geocodingUrl, {
+                                    method: 'GET',
+                                    headers: {
+                                        'User-Agent': 'BustanAlReef/1.0',
+                                        'Accept': 'application/json'
+                                    }
+                                });
+                                if (response.ok) {
+                                    data = await response.json();
+                                }
+                            } catch (directError) {
+                                console.log('Direct method failed:', directError);
+                            }
+                        }
+                        
+                        // Method 3: Simple offline fallback with UAE location detection
+                        if (!data) {
+                            // Simple coordinate-based UAE location detection
+                            const uaeEmirates = [
+                                { name: 'abu dhabi', lat: 24.4539, lon: 54.3773 },
+                                { name: 'dubai', lat: 25.2048, lon: 55.2708 },
+                                { name: 'sharjah', lat: 25.3575, lon: 55.4032 },
+                                { name: 'ajman', lat: 25.4052, lon: 55.5136 },
+                                { name: 'umm al quwain', lat: 25.5647, lon: 55.5552 },
+                                { name: 'ras al khaimah', lat: 25.7895, lon: 55.9432 },
+                                { name: 'fujairah', lat: 25.1288, lon: 56.3265 }
+                            ];
+                            
+                            // Find nearest emirate
+                            let nearestEmirate = 'abu dhabi'; // default
+                            let minDistance = Infinity;
+                            
+                            uaeEmirates.forEach(emirate => {
+                                const distance = Math.sqrt(
+                                    Math.pow(latitude - emirate.lat, 2) + 
+                                    Math.pow(longitude - emirate.lon, 2)
+                                );
+                                if (distance < minDistance) {
+                                    minDistance = distance;
+                                    nearestEmirate = emirate.name;
+                                }
+                            });
+                            
+                            // Auto-select detected emirate
+                            const emirateSelect = document.getElementById('emirate');
+                            for (let i = 0; i < emirateSelect.options.length; i++) {
+                                if (emirateSelect.options[i].value === nearestEmirate) {
+                                    emirateSelect.selectedIndex = i;
+                                    break;
+                                }
+                            }
+                            
+                            locationStatus.innerHTML = `<div class="success">Location detected in ${nearestEmirate.replace(/\b\w/g, l => l.toUpperCase())}!</div>`;
+                            locationResult.innerHTML = `
+                                <div class="location-info">
+                                    <strong>Detected Emirate:</strong> ${nearestEmirate.replace(/\b\w/g, l => l.toUpperCase())}<br>
+                                    <strong>Coordinates:</strong> ${latitude.toFixed(6)}, ${longitude.toFixed(6)}<br>
+                                    <small>Please complete your address details below.</small>
+                                </div>
+                            `;
+                            locationResult.style.display = 'block';
+                            updateBookingSummary();
+                            return;
+                        }
+                        
+                        if (data && data.display_name) {
+                            // Fill form fields
+                            const address = data.address;
+                            document.getElementById('streetAddress').value = address.road || address.street || '';
+                            document.getElementById('buildingNumber').value = address.house_number || '';
+                            document.getElementById('landmark').value = address.landmark || '';
+                            
+                            // Select emirate if available
+                            if (address.state || address.county) {
+                                const emirateSelect = document.getElementById('emirate');
+                                const emirateName = (address.state || address.county).toLowerCase();
+                                for (let i = 0; i < emirateSelect.options.length; i++) {
+                                    if (emirateSelect.options[i].value.toLowerCase().includes(emirateName)) {
+                                        emirateSelect.selectedIndex = i;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            locationStatus.innerHTML = '<div class="success">Location found successfully!</div>';
+                            locationResult.innerHTML = `
+                                <div class="location-info">
+                                    <strong>Detected Address:</strong><br>
+                                    ${data.display_name}<br>
+                                    <small>Coordinates: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}</small>
+                                </div>
+                            `;
+                            locationResult.style.display = 'block';
+                            updateBookingSummary();
+                        } else {
+                            throw new Error('No address found');
+                        }
+                    } catch (error) {
+                        locationStatus.innerHTML = '<div class="error">Unable to fetch address. Please try again or enter manually.</div>';
+                        console.error('Geocoding error:', error);
+                    }
+                },
+                (error) => {
+                    let errorMessage = 'Unable to fetch location. ';
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            errorMessage += 'Location access denied. Please enable location permissions.';
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            errorMessage += 'Location information unavailable.';
+                            break;
+                        case error.TIMEOUT:
+                            errorMessage += 'Location request timed out.';
+                            break;
+                        default:
+                            errorMessage += 'Unknown error occurred.';
+                            break;
+                    }
+                    locationStatus.innerHTML = `<div class="error">${errorMessage}</div>`;
+                }
+            );
+        }
+
+        function openMapPicker() {
+            const locationStatus = document.getElementById('locationStatus');
+            const locationResult = document.getElementById('locationResult');
+            
+            locationStatus.innerHTML = '<div class="info">Map picker would open here. For now, please enter your address manually.</div>';
+            locationStatus.style.display = 'block';
+            locationResult.style.display = 'none';
+            
+            // In a real implementation, this would open a map interface
+            // For demo purposes, we'll show a simple message
+            setTimeout(() => {
+                locationStatus.innerHTML = '<div class="success">Please enter your address manually in the form above.</div>';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
