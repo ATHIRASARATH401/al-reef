@@ -163,7 +163,7 @@
                                     </div>
                                 </div>
                                 <div class="location-actions">
-                                    <button type="button" class="btn-secondary" onclick="getCurrentLocation()">
+                                    <button type="button" class="btn-primary" onclick="getCurrentLocation()">
                                         <i class="fas fa-location-dot"></i> Use Current Location
                                     </button>
                                 </div>
@@ -291,7 +291,11 @@
             const locationStatus = document.getElementById('locationStatus');
             const locationResult = document.getElementById('locationResult');
             
+            // Debug: Show function was called
+            console.log('getCurrentLocation function called');
+            
             if (!navigator.geolocation) {
+                console.log('Geolocation not supported');
                 showManualLocationOption();
                 return;
             }
@@ -307,8 +311,11 @@
                 maximumAge: 0
             };
             
+            console.log('Requesting geolocation with options:', options);
+            
             navigator.geolocation.getCurrentPosition(
                 (position) => {
+                    console.log('Position received:', position);
                     const { latitude, longitude } = position.coords;
                     
                     locationStatus.innerHTML = '<div class="loading">📍 Detecting your emirate...</div>';
@@ -338,6 +345,8 @@
                             nearestEmirate = emirate;
                         }
                     });
+                    
+                    console.log('Nearest emirate detected:', nearestEmirate);
                     
                     // Auto-select detected emirate in main form
                     const emirateSelect = document.getElementById('serviceArea');
@@ -376,6 +385,7 @@
                     updateBookingSummary();
                 },
                 (error) => {
+                    console.log('Geolocation error:', error);
                     // If any error, show manual selection
                     showManualLocationOption();
                 },
