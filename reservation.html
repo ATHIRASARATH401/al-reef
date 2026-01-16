@@ -278,10 +278,205 @@
             'other': 199
         };
 
-        // ------------------- LOCATION FUNCTION -------------------
+        // ------------------- AUTO-LOAD LOCATION -------------------
+        window.addEventListener('load', function() {
+            // Show location options automatically after page load
+            setTimeout(function() {
+                showManualLocationOption();
+            }, 1000);
+        });
+
+        // ------------------- LOCATION FUNCTIONS -------------------
+        function getCurrentLocation() {
+            const locationStatus = document.getElementById('locationStatus');
+            const locationResult = document.getElementById('locationResult');
+            
+            if (!navigator.geolocation) {
+                showManualLocationOption();
+                return;
+            }
+            
+            locationStatus.innerHTML = '<div class="loading">🔄 Getting your location...</div>';
+            locationStatus.style.display = 'block';
+            locationResult.style.display = 'none';
+            
+            // Use high accuracy and timeout
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            };
+            
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    
+                    locationStatus.innerHTML = '<div class="loading">📍 Detecting your emirate...</div>';
+                    
+                    // Simple UAE emirate detection
+                    const uaeEmirates = [
+                        { name: 'abu dhabi', lat: 24.4539, lon: 54.3773, display: 'Abu Dhabi' },
+                        { name: 'dubai', lat: 25.2048, lon: 55.2708, display: 'Dubai' },
+                        { name: 'sharjah', lat: 25.3575, lon: 55.4032, display: 'Sharjah' },
+                        { name: 'ajman', lat: 25.4052, lon: 55.5136, display: 'Ajman' },
+                        { name: 'umm al quwain', lat: 25.5647, lon: 55.5552, display: 'Umm Al Quwain' },
+                        { name: 'ras al khaimah', lat: 25.7895, lon: 55.9432, display: 'Ras Al Khaimah' },
+                        { name: 'fujairah', lat: 25.1288, lon: 56.3265, display: 'Fujairah' }
+                    ];
+                    
+                    // Find nearest emirate
+                    let nearestEmirate = uaeEmirates[0];
+                    let minDistance = Infinity;
+                    
+                    uaeEmirates.forEach(emirate => {
+                        const distance = Math.sqrt(
+                            Math.pow(latitude - emirate.lat, 2) + 
+                            Math.pow(longitude - emirate.lon, 2)
+                        );
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            nearestEmirate = emirate;
+                        }
+                    });
+                    
+                    // Auto-select detected emirate in main form
+                    const emirateSelect = document.getElementById('serviceArea');
+                    for (let i = 0; i < emirateSelect.options.length; i++) {
+                        if (emirateSelect.options[i].value.toLowerCase().includes(nearestEmirate.name.replace(' ', '-'))) {
+                            emirateSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                    
+                    // Fill sample address
+                    const sampleAddresses = {
+                        'abu dhabi': 'Khalifa Street',
+                        'dubai': 'Sheikh Zayed Road',
+                        'sharjah': 'Al Wahda Street',
+                        'ajman': 'Sheikh Khalifa Street',
+                        'umm al quwain': 'Al Salam Street',
+                        'ras al khaimah': 'Al Qasimi Street',
+                        'fujairah': 'Sheikh Khalifa Street'
+                    };
+                    
+                    document.getElementById('streetAddress').value = sampleAddresses[nearestEmirate.name] || '';
+                    document.getElementById('buildingNumber').value = '123';
+                    document.getElementById('landmark').value = 'Near City Center';
+                    
+                    locationStatus.innerHTML = '<div class="success">✅ Location found!</div>';
+                    locationResult.innerHTML = `
+                        <div class="location-info">
+                            <strong>📍 Your Emirate:</strong> ${nearestEmirate.display}<br>
+                            <strong>🏠 Address:</strong> ${sampleAddresses[nearestEmirate.name]}<br>
+                            <strong>📍 GPS:</strong> ${latitude.toFixed(4)}, ${longitude.toFixed(4)}<br>
+                            <small>✨ Address filled! Please review and edit if needed.</small>
+                        </div>
+                    `;
+                    locationResult.style.display = 'block';
+                    updateBookingSummary();
+                },
+                (error) => {
+                    // If any error, show manual selection
+                    showManualLocationOption();
+                },
+                options
+            );
+        }
+
         function showLocationPermissionHelp() {
             // Skip permission help and go directly to manual selection
             showManualLocationOption();
+        }
+
+        function showManualLocationOption() {
+            const locationStatus = document.getElementById('locationStatus');
+            const locationResult = document.getElementById('locationResult');
+            
+            locationStatus.innerHTML = '<div class="info">📍 Select your location for service:</div>';
+            locationStatus.style.display = 'block';
+            
+            locationResult.innerHTML = `
+                <div class="location-info">
+                    <div style="margin-bottom: 15px;">
+                        <button type="button" class="btn-primary" onclick="getCurrentLocation()" style="width: 100%; margin-bottom: 10px;">
+                            📍 Use My Current Location
+                        </button>
+                        <button type="button" class="btn-secondary" onclick="openGoogleMaps()" style="width: 100%; margin-bottom: 10px;">
+                            🗺️ Select on Map
+                        </button>
+                        <div style="text-align: center; margin: 10px 0; color: #666;">OR</div>
+                        <label style="display: block; margin-bottom: 5px; font-weight: 500;">Choose Your Area:</label>
+                        <select id="manualEmirate" onchange="fillManualAddress()" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="">-- Select Your Area --</option>
+                            <option value="abu-dhabi-city">Abu Dhabi City</option>
+                            <option value="khalifa-city">Khalifa City</option>
+                            <option value="al-ain">Al Ain</option>
+                            <option value="dubai">Dubai</option>
+                            <option value="sharjah">Sharjah</option>
+                            <option value="ajman">Ajman</option>
+                        </select>
+                    </div>
+                    <div id="manualAddressResult"></div>
+                    <div id="mapContainer" style="display: none; margin-top: 15px;">
+                        <div style="margin-bottom: 10px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">🗺️ Click on map to select your location:</label>
+                            <div id="map" style="height: 300px; width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #f0f0f0;"></div>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="button" class="btn-primary" onclick="confirmMapLocation()" style="margin: 5px;">
+                                ✅ Use This Location
+                            </button>
+                            <button type="button" class="btn-secondary" onclick="closeMap()" style="margin: 5px;">
+                                ❌ Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            locationResult.style.display = 'block';
+        }
+
+        function fillManualAddress() {
+            const emirate = document.getElementById('manualEmirate').value;
+            const resultDiv = document.getElementById('manualAddressResult');
+            
+            if (!emirate) {
+                resultDiv.innerHTML = '';
+                return;
+            }
+            
+            // Auto-select emirate in main form
+            const emirateSelect = document.getElementById('serviceArea');
+            for (let i = 0; i < emirateSelect.options.length; i++) {
+                if (emirateSelect.options[i].value === emirate) {
+                    emirateSelect.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            // Fill sample address
+            const sampleAddresses = {
+                'abu-dhabi-city': 'Khalifa Street',
+                'khalifa-city': 'Khalifa City Street',
+                'al-ain': 'Al Ain City Center',
+                'dubai': 'Sheikh Zayed Road',
+                'sharjah': 'Al Wahda Street',
+                'ajman': 'Sheikh Khalifa Street'
+            };
+            
+            document.getElementById('streetAddress').value = sampleAddresses[emirate] || '';
+            document.getElementById('buildingNumber').value = '123';
+            document.getElementById('landmark').value = 'Near City Center';
+            
+            resultDiv.innerHTML = `
+                <div style="margin-top: 10px; padding: 10px; background: #e8f5e8; border-radius: 4px;">
+                    <strong>✅ Address filled for ${emirate.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</strong><br>
+                    <small>📍 ${sampleAddresses[emirate]}, Building 123</small><br>
+                    <small>Please review and edit if needed.</small>
+                </div>
+            `;
+            
+            updateBookingSummary();
         }
 
         function openGoogleMaps() {
@@ -298,9 +493,9 @@
             mapDiv.innerHTML = `
                 <div style="text-align: center; padding: 20px; background: #f0f0f0; border-radius: 4px;">
                     <h4 style="color: #333; margin-bottom: 15px;">🗺️ Select Your Location</h4>
-                    <p style="color: #666; margin-bottom: 20px;">Click on the map below to select your exact location</p>
+                    <p style="color: #666; margin-bottom: 20px;">Click on map below to select your exact location</p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 20px;">
-                        <button type="button" onclick="selectMapLocation('abu dhabi', 'Khalifa Street', 24.4539, 54.3773)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        <button type="button" onclick="selectMapLocation('abu-dhabi-city', 'Khalifa Street', 24.4539, 54.3773)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
                             🏛️ Abu Dhabi
                         </button>
                         <button type="button" onclick="selectMapLocation('dubai', 'Sheikh Zayed Road', 25.2048, 55.2708)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
@@ -312,14 +507,11 @@
                         <button type="button" onclick="selectMapLocation('ajman', 'Sheikh Khalifa Street', 25.4052, 55.5136)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
                             🏖️ Ajman
                         </button>
-                        <button type="button" onclick="selectMapLocation('umm al quwain', 'Al Salam Street', 25.5647, 55.5552)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                            🏝️ Umm Al Quwain
+                        <button type="button" onclick="selectMapLocation('khalifa-city', 'Khalifa City Street', 24.4833, 54.3633)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            🏝️ Khalifa City
                         </button>
-                        <button type="button" onclick="selectMapLocation('ras al khaimah', 'Al Qasimi Street', 25.7895, 55.9432)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                            🏜️ Ras Al Khaimah
-                        </button>
-                        <button type="button" onclick="selectMapLocation('fujairah', 'Sheikh Khalifa Street', 25.1288, 56.3265)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                            🏞️ Fujairah
+                        <button type="button" onclick="selectMapLocation('al-ain', 'Al Ain City Center', 24.2333, 55.7333)" style="padding: 10px; background: #FF6B35; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            🏞️ Al Ain
                         </button>
                     </div>
                     <p style="color: #666; font-size: 14px;">💡 Click any emirate to auto-fill your location details</p>
@@ -334,7 +526,7 @@
             document.getElementById('landmark').value = 'Selected on map';
             
             // Select emirate in dropdown
-            const emirateSelect = document.getElementById('emirate');
+            const emirateSelect = document.getElementById('serviceArea');
             for (let i = 0; i < emirateSelect.options.length; i++) {
                 if (emirateSelect.options[i].value === emirate) {
                     emirateSelect.selectedIndex = i;
@@ -349,7 +541,7 @@
             locationStatus.innerHTML = '<div class="success">✅ Location selected!</div>';
             locationResult.innerHTML = `
                 <div class="location-info">
-                    <strong>📍 Selected Emirate:</strong> ${emirate.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}<br>
+                    <strong>📍 Selected Area:</strong> ${emirate.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}<br>
                     <strong>🏠 Address:</strong> ${street}<br>
                     <strong>📍 Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}<br>
                     <small>✨ Address fields filled! Please review and edit if needed.</small>
@@ -367,14 +559,127 @@
 
         function closeMap() {
             const mapContainer = document.getElementById('mapContainer');
-            const locationResult = document.getElementById('locationResult');
-            
             mapContainer.style.display = 'none';
             showManualLocationOption();
         }
 
-        // ------------------- OTHER EXISTING FUNCTIONS -------------------
-        // Keep updateBookingSummary(), resetForm(), and event listeners as in your original code
+        // ------------------- BOOKING SUMMARY FUNCTIONS -------------------
+        function updateBookingSummary() {
+            const summaryContent = document.getElementById('summaryContent');
+            const summaryTotal = document.getElementById('summaryTotal');
+            const totalAmount = document.getElementById('totalAmount');
+            
+            // Get form values
+            const serviceType = document.getElementById('serviceType').value;
+            const propertyType = document.getElementById('propertyType').value;
+            const propertySize = document.getElementById('propertySize').value;
+            const bookingDate = document.getElementById('bookingDate').value;
+            const bookingTime = document.getElementById('bookingTime').value;
+            const urgency = document.getElementById('urgency').value;
+            const streetAddress = document.getElementById('streetAddress').value;
+            const ecoFriendly = document.getElementById('ecoFriendly').checked;
+            const afterHours = document.getElementById('afterHours').checked;
+            const recurring = document.getElementById('recurring').checked;
+            
+            if (!serviceType || !propertyType || !bookingDate || !bookingTime || !streetAddress) {
+                summaryContent.innerHTML = '<p class="empty-summary">Fill in all required fields to see your booking summary</p>';
+                summaryTotal.style.display = 'none';
+                return;
+            }
+            
+            // Calculate base price
+            let basePrice = servicePrices[serviceType] || 199;
+            
+            // Add additional charges
+            let additionalCharges = 0;
+            if (ecoFriendly) additionalCharges += basePrice * 0.10;
+            if (afterHours) additionalCharges += basePrice * 0.20;
+            
+            let totalPrice = basePrice + additionalCharges;
+            
+            // Display summary
+            summaryContent.innerHTML = `
+                <div class="summary-item">
+                    <span class="summary-label">Service:</span>
+                    <span class="summary-value">${serviceType.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Property:</span>
+                    <span class="summary-value">${propertyType.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                </div>
+                ${propertySize ? `
+                <div class="summary-item">
+                    <span class="summary-label">Size:</span>
+                    <span class="summary-value">${propertySize} sq ft</span>
+                </div>` : ''}
+                <div class="summary-item">
+                    <span class="summary-label">Date:</span>
+                    <span class="summary-value">${new Date(bookingDate).toLocaleDateString()}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Time:</span>
+                    <span class="summary-value">${bookingTime}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Urgency:</span>
+                    <span class="summary-value">${urgency.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Address:</span>
+                    <span class="summary-value">${streetAddress}</span>
+                </div>
+                ${ecoFriendly ? `
+                <div class="summary-item">
+                    <span class="summary-label">Eco-Friendly:</span>
+                    <span class="summary-value">+10%</span>
+                </div>` : ''}
+                ${afterHours ? `
+                <div class="summary-item">
+                    <span class="summary-label">After Hours:</span>
+                    <span class="summary-value">+20%</span>
+                </div>` : ''}
+                ${recurring ? `
+                <div class="summary-item">
+                    <span class="summary-label">Service Type:</span>
+                    <span class="summary-value">Recurring</span>
+                </div>` : ''}
+            `;
+            
+            totalAmount.textContent = Math.round(totalPrice);
+            summaryTotal.style.display = 'block';
+        }
+
+        function resetForm() {
+            document.getElementById('bookingForm').reset();
+            document.getElementById('summaryContent').innerHTML = '<p class="empty-summary">Fill in form to see your booking summary</p>';
+            document.getElementById('summaryTotal').style.display = 'none';
+            document.getElementById('locationStatus').innerHTML = '';
+            document.getElementById('locationResult').innerHTML = '';
+        }
+
+        // ------------------- EVENT LISTENERS -------------------
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form submission
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your booking! We will contact you shortly to confirm your appointment.');
+                resetForm();
+            });
+            
+            // Update booking summary on form changes
+            document.getElementById('serviceType').addEventListener('change', updateBookingSummary);
+            document.getElementById('propertyType').addEventListener('change', updateBookingSummary);
+            document.getElementById('propertySize').addEventListener('input', updateBookingSummary);
+            document.getElementById('bookingDate').addEventListener('change', updateBookingSummary);
+            document.getElementById('bookingTime').addEventListener('change', updateBookingSummary);
+            document.getElementById('urgency').addEventListener('change', updateBookingSummary);
+            document.getElementById('streetAddress').addEventListener('input', updateBookingSummary);
+            document.getElementById('ecoFriendly').addEventListener('change', updateBookingSummary);
+            document.getElementById('afterHours').addEventListener('change', updateBookingSummary);
+            
+            // Set minimum date to today
+            document.getElementById('bookingDate').min = new Date().toISOString().split('T')[0];
+        });
     </script>
 </body>
 </html>
